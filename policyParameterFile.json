@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "policyAssignmentName": {
+            "value": "Require tags on resources"
+        },
+        "policyDefinitionID": {
+            "value": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62"
+        },
+        "policyParameters": {
+            "value": {
+                "tagName": [
+                    "CostCenter"
+                ],
+                "tagValue": [
+                    "Oslo"
+                ]
+            }
+        }
+    }
+}
