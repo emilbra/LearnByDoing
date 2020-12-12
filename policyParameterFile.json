@@ -8,15 +8,11 @@
         "policyDefinitionID": {
             "value": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62"
         },
-        "policyParameters": {
-            "value": {
-                "tagName": [
-                    "CostCenter"
-                ],
-                "tagValue": [
-                    "Oslo"
-                ]
-            }
+        "tagName": {
+            "value": "CostCenter"
+        },
+        "tagValue": {
+            "value": "Oslo"
         }
     }
 }
