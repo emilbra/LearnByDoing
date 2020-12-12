@@ -1,8 +1,8 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.1",
-    "parameters": {
-"policyAssignmentName": {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.1",
+  "parameters": {
+    "policyAssignmentName": {
       "type": "string",
       "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
       "metadata": {
@@ -15,22 +15,33 @@
         "description": "Specifies the ID of the policy definition or policy set definition being assigned."
       }
     },
-    "policyParameters": {
-        "type": "object"
-    }
+    "tagName": {
+      "type": "string"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/policyAssignments",
-            "name": "[parameters('policyAssignmentName')]",
-            "apiVersion": "2019-09-01",
-            "properties": {
-                "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
-                "policyDefinitionId": "[parameters('policyDefinitionID')]",
-                "parameters": "[parameters('policyParameters')]"
-            }
+    "tagValue": {
+      "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[parameters('policyDefinitionID')]",
+        "parameters": {
+          "tagName": 
+          {
+            "value": "[parameters('tagName')]"
+          },
+          "tagValue":{
+            "value": "[parameters('tagValue')]"
+          }
         }
-    ],
-    "outputs": {}
+      }
+    }
+  ],
+  "outputs": {}
 }
