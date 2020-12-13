@@ -1,5 +1,5 @@
 # LearnByDoing
-Nothing to say here, exepct that the best method to learn something is to start doing it!
+Nothing to say here, except that the best method to learn something is to start doing it!
 Contains:
 ## A deployment for a resource group in the form of:
 * template.json
